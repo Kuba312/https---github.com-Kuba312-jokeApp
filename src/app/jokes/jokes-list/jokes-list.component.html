@@ -1,0 +1,43 @@
+<section class="container mt-5 d-flex flex-column w-50">
+  <div class="align-self-start">
+    <button class="btn background-button fw-bold default-font-size py-2 px-4 ms-4" (click)="openAddDialog()">
+      Dodaj
+    </button>
+  </div>
+  <div class="slider">
+    <ng-container *ngIf="jokes$ | async as jokes">
+      <div
+        *ngFor="let joke of jokes; let i = index"
+        class="slider__slide slide--{{ i + 1 }}"
+        #slide
+        (click)="showDetails(joke)"
+        [matTooltip]="'Pokaz dane zartu'"
+        [matTooltipPosition]="'above'"
+        [style.transform]="'translateX(' + i * 100 + '%)'"
+      >
+        <app-joke-item>
+          <span class="category">{{ joke.category | categoryData | async }}</span>
+          <blockquote class="joke-text wrap-text">
+            {{ joke.content }}
+          </blockquote>
+        </app-joke-item>
+      </div>
+    </ng-container>
+  </div>
+  <div class="d-flex justify-content-between mx-4">
+    <div class="align-self-start" (click)="onPrevious()" *ngIf="jokeIndex > 1; else noNext">
+        <button class="btn background-button fw-bold default-font-size py-2 px-4 tran">
+            Pokaz poprzedni
+        </button>
+      </div>
+      <ng-template #noNext>
+        <div>&nbsp;</div>
+      </ng-template>
+    <div class="align-self-end" (click)="onNext()">
+        <button class="btn background-button fw-bold default-font-size py-2 px-4">
+            Pokaz następny
+        </button>
+      </div>
+  </div>
+
+</section>

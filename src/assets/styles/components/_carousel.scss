@@ -1,0 +1,28 @@
+.slider {
+    max-width: 100rem;
+    height: 21rem;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 56.25em) {
+      height: 23rem;
+    }
+
+    @media (max-width: 25.5625em) {
+      height: 27rem;
+    }
+
+  &__slide {
+    position: absolute;
+    padding: 2rem;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    transition: transform 1s;
+  }
+}

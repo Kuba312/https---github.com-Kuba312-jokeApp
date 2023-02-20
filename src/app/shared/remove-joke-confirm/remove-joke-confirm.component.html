@@ -1,0 +1,10 @@
+<section class="container d-flex flex-column">
+    <h3 mat-dialog-title>Potwierdzenie</h3>
+    <div mat-dialog-content class="p-5" class="text-center">
+        <p>Czy na pewno chcesz usunąc wybrany zart?</p>
+    </div>
+    <div mat-dialog-actions class="align-self-end">
+        <button class="btn active-link fw-bold default-font-size py-2 px-4 ms-4" (click)="cancel()">Nie</button>
+        <button class="btn background-button fw-bold default-font-size py-2 px-4 ms-4" (click)="confirm()">Tak</button>
+    </div>
+</section>

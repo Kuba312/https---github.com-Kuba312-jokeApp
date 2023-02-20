@@ -1,0 +1,66 @@
+.warning {
+  .mdc-snackbar {
+    background-color: #b53939cd !important;
+  }
+  .mdc-snackbar__surface {
+    background-color: #b53939cd !important;
+    padding: 0 !important;
+    border-radius: 3px !important;
+  }
+  .mat-mdc-snack-bar-label {
+    padding: 3rem 0.7rem 1rem !important;
+    background-color: #b53939cd !important;
+    font-weight: 700 !important;
+    color: #ffff !important;
+  }
+
+  .mat-mdc-button-touch-target {
+    background-color: #b53939cd !important;
+  }
+
+  .mdc-button__label {
+    position: relative;
+    color: #ffff;
+    font-weight: 700 !important;
+  }
+  .mdc-button__label::after {
+    content: "Błąd";
+    position: absolute;
+    top: -77%;
+    right: 2596.3%;
+  }
+
+}
+
+.success {
+  .mdc-snackbar {
+    background-color: #6ac068 !important;
+  }
+  .mdc-snackbar__surface {
+    background-color: #6ac068 !important;
+    padding: 0 !important;
+    border-radius: 3px !important;
+  }
+  .mat-mdc-snack-bar-label {
+    padding: 2rem 0.7rem 1.5rem !important;
+    background-color: #6ac068 !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+
+    &::after {
+      content: "Sukces";
+      position: absolute;
+      top: 14%;
+      right: 82.3%;
+    }
+  }
+
+  .mat-mdc-button-touch-target {
+    background-color: #6ac068 !important;
+  }
+
+  .mdc-button__label {
+    color: #ffffff;
+    font-weight: 700 !important;
+  }
+}

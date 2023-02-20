@@ -1,0 +1,28 @@
+<section
+  class="container mt-5 w-75 mx-auto mt-5 d-flex flex-column"
+>
+<div class="align-self-start box-width margin-left-button">
+  <button class="btn background-button fw-bold default-font-size py-2 px-4 ms-5" (click)="openAddDialog()">
+    Dodaj
+  </button>
+</div>
+<div class="d-flex flex-wrap gap-3 justify-content-center">
+  <ng-container *ngIf="myJokes$ | async as myJokes">
+    <div
+      *ngFor="let joke of myJokes; let i = index"
+      (click)="showDetails(joke)"
+      [matTooltip]="'Pokaz dane zartu'"
+      [matTooltipPosition]="'above'"
+      class="box-width pointer pt-5 mt-5"
+    >
+      <app-joke-item [myJokes]="true" [id]="joke.id">
+        <span class="category">{{ joke.category | categoryData | async }}</span>
+        <blockquote class="joke-text wrap-text">
+          {{ joke.content }}
+        </blockquote>
+      </app-joke-item>
+    </div>
+  </ng-container>
+</div>
+
+</section>

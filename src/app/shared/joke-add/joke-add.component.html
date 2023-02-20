@@ -1,0 +1,30 @@
+<form class="form d-flex flex-column w-100 p-5" [formGroup]="formModel.formGroup" (ngSubmit)="saveJoke()">
+    <h2 class="">Dodawanie zartu</h2>
+    <mat-form-field appearance="outline">
+        <mat-select [formControlName]="formModel.CATEGORY" placeholder="Wybierz kategorię">
+           <mat-option 
+           *ngFor="let category of categories$ | async" 
+           [value]="category.id">
+           {{category.name}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="
+        !formModel.formGroup.get(formModel?.CATEGORY)?.valid &&
+        formModel.formGroup.get(formModel?.CATEGORY)?.touched">
+          Podanie kategorii jest wymagane!
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <textarea matInput cdkTextareaAutosize placeholder="Wprowadź treśc zartu" cols="30" rows="10" [formControlName]="formModel.CONTENT"></textarea>
+        <mat-error *ngIf="
+        !formModel.formGroup.get(formModel?.CONTENT)?.valid &&
+        formModel.formGroup.get(formModel?.CONTENT)?.touched">
+          Podanie treści zartu jest wymagane!
+        </mat-error>
+    </mat-form-field>
+    <div class="align-self-end">
+    <button type="button" class="btn active-link fw-bold default-font-size py-2 px-4 ms-4" (click)="cancel()">Anuluj</button>
+    <button class="btn background-button fw-bold default-font-size py-2 px-4 ms-4">Dodaj</button>
+    </div>
+    
+</form>
