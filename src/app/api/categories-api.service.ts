@@ -8,12 +8,7 @@ export class CategoriesApiService {
 
     constructor(private readonly httpClient: HttpClient) { }
     getCategories(): Observable<CategoryDto[]> {
-        return this.httpClient.get<CategoryDto[]>('assets/categories.json')
-            .pipe(
-                tap((response) => {
-                    console.log(response);
-                })
-            );
+        return this.httpClient.get<CategoryDto[]>('assets/categories.json');
     }
 
     getCategoryById(categoryId: string): any {
