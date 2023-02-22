@@ -80,9 +80,8 @@ describe('MyJokesComponent', () => {
   
     component.openAddDialog();
     tick();
-  
-    expect(dialogMock.open).toHaveBeenCalled();
-  
+
+    expect(dialogMock.open).toHaveBeenCalled();  
     expect(component.loadMyJokes).toHaveBeenCalled();
   }));
 });

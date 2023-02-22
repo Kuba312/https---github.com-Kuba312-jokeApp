@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { AppMessageService } from '../services/app-message.service';
   templateUrl: './joke-item.component.html',
   styleUrls: ['./joke-item.component.scss']
 })
-export class JokeItemComponent {
+export class JokeItemComponent implements OnDestroy {
 
   @Input() myJokes: boolean = false;
   @Input() id: string;
@@ -22,6 +22,10 @@ export class JokeItemComponent {
   constructor(private readonly store: Store<AppState>,
     private dialog: MatDialog,
     private readonly appMessageService: AppMessageService) { }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   removeJoke() {
     const dialogRef = this.dialog.open(RemoveJokeConfirmComponent);

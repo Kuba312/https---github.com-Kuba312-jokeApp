@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { selectAllMyJokes } from '../state/my-jokes.selector';
   templateUrl: './my-jokes-list.component.html',
   styleUrls: ['./my-jokes-list.component.scss']
 })
-export class MyJokesListComponent implements OnInit {
+export class MyJokesListComponent implements OnInit, OnDestroy {
 
 
   myJokes$: Observable<JokeDto[]>;
@@ -25,12 +25,17 @@ export class MyJokesListComponent implements OnInit {
     private readonly appMessageService: AppMessageService) { }
 
 
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   ngOnInit(): void {
     this.loadMyJokes();
   }
 
 
-   loadMyJokes() {
+  loadMyJokes() {
     this.myJokes$ = this.store.pipe(
       select(selectAllMyJokes)
     );

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { selectAllJokes } from '../state/jokes.selector';
   selector: 'app-jokes-list',
   templateUrl: './jokes-list.component.html'
 })
-export class JokesListComponent implements OnInit {
+export class JokesListComponent implements OnInit, OnDestroy {
 
 
   @ViewChildren('slide') slides: QueryList<ElementRef>;
@@ -31,6 +31,12 @@ export class JokesListComponent implements OnInit {
   ngOnInit(): void {
     this.loadJokes();
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+
 
   private loadJokes(): void {
     this.jokes$ = this.store.pipe(select(selectAllJokes));
