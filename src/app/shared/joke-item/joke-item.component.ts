@@ -23,7 +23,7 @@ export class JokeItemComponent implements OnDestroy {
     private readonly appMessageService: AppMessageService) { }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 
   removeJoke() {
