@@ -12,8 +12,7 @@ import { JokeAddFormModel } from './joke-add.form-model';
 
 @Component({
   selector: 'app-joke-add',
-  templateUrl: './joke-add.component.html',
-  styleUrls: ['./joke-add.component.scss']
+  templateUrl: './joke-add.component.html'
 })
 export class JokeAddComponent implements OnInit {
 

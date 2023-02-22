@@ -9,8 +9,7 @@ import { AppMessageService } from '../services/app-message.service';
 
 @Component({
   selector: 'app-joke-item',
-  templateUrl: './joke-item.component.html',
-  styleUrls: ['./joke-item.component.scss']
+  templateUrl: './joke-item.component.html'
 })
 export class JokeItemComponent implements OnDestroy {
 

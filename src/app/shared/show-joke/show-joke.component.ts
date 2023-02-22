@@ -4,8 +4,7 @@ import { JokeDto } from 'src/app/api/models/jokeDto';
 
 @Component({
   selector: 'app-show-joke',
-  templateUrl: './show-joke.component.html',
-  styleUrls: ['./show-joke.component.scss']
+  templateUrl: './show-joke.component.html'
 })
 export class ShowJokeComponent {
 

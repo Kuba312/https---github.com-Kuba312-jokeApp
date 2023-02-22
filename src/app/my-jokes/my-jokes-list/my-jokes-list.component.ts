@@ -11,8 +11,7 @@ import { selectAllMyJokes } from '../state/my-jokes.selector';
 
 @Component({
   selector: 'app-my-jokes-list',
-  templateUrl: './my-jokes-list.component.html',
-  styleUrls: ['./my-jokes-list.component.scss']
+  templateUrl: './my-jokes-list.component.html'
 })
 export class MyJokesListComponent implements OnInit, OnDestroy {
 

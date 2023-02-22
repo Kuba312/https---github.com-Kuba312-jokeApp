@@ -3,8 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-remove-joke-confirm',
-  templateUrl: './remove-joke-confirm.component.html',
-  styleUrls: ['./remove-joke-confirm.component.scss']
+  templateUrl: './remove-joke-confirm.component.html'
 })
 export class RemoveJokeConfirmComponent {
   
